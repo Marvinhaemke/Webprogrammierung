@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="kursestyle.css">
+    <script src="kursescript.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+<div class="list-group" id="kurse">
+    <template>
+        <div id="kurs">
+    <button type="button" class="btn btn-block" data-toggle="collapse" data-target="#demo" id="demobutton">Grillfest</button>
+    <div id="demo" class="collapse">
+        <!-- Modal -->
+        <h2 class="kursname">Grillfest</h2>
+        <p class="kurstext">Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) </br>
+            Investition: ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</p>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal" id="buchenButton" >Buchen</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Header</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="container" id = "kalcont">
+
+                            <div class="row">
+                                <div class="span12">
+                                    <table class="table-condensed table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="7">
+                        <span class="btn-group">
+<!--                            <a class="btn"><i class="icon-chevron-left"></i></a>-->
+                        	<a class="btn active" id="monthYear">Februar 2020</a>
+<!--                        	<a class="btn"><i class="icon-chevron-right"></i></a>-->
+                        </span>
+                                            </th>
+                                        </tr>
+                                        <tr>
+
+                                            <th>Mo</th>
+                                            <th>Di</th>
+                                            <th>Mi</th>
+                                            <th>Do</th>
+                                            <th>Fr</th>
+                                            <th>Sa</th>
+                                            <th>So</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="muted">29</td>
+                                            <td class="muted">30</td>
+                                            <td class="muted">31</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                            <td>10</td>
+                                            <td>11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>13</td>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>17</td>
+                                            <td>18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>20</td>
+                                            <td>21</td>
+                                            <td>22</td>
+                                            <td>23</td>
+                                            <td>24</td>
+                                            <td>25</td>
+                                        </tr>
+                                        <tr>
+                                            <td>26</td>
+                                            <td>27</td>
+                                            <td>28</td>
+                                            <td>29</td>
+                                            <td class="muted" id="day29">1</td>
+                                            <td class="muted" id="day30">2</td>
+                                            <td class="muted" id="day31">3</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <form class="form">
+                            <input type="text" placeholder="Vorname">
+                            <input type="text" placeholder="Nachname">
+                            <input type="text" placeholder="Stadt">
+                            <input type="text" placeholder="Straße">
+                            <input type="text" placeholder="Hausnummer">
+                            <input type="text" placeholder="PLZ">
+                            <button>Buchen</button>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+        </div>
+    </template>
+</div>
+<!--<button>Ajax</button>-->
+
+</body>
+</html>

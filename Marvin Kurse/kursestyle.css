@@ -1,0 +1,24 @@
+.btn {
+    background-color: grey;
+    border: solid lightgrey 2px;
+    border-bottom: none;
+    border-radius: 0rem;
+    outline: none;
+}
+.btn:focus {
+    box-shadow: none;
+}
+h4 {
+    text-align: left;
+}
+#kalcont {
+    float: left;
+}
+
+form {
+    float: left;
+}
+
+html {
+    overflow-y: scroll;
+}
