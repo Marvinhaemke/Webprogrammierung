@@ -1,0 +1,206 @@
+$lightBg: #f2f2f2;
+$light: #999;
+$high: #333;
+
+$BP: 35em;
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: $lightBg;
+}
+
+h1,
+p {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 1em 0;
+}
+
+p {
+  padding: .5em 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+@media (max-width: $BP) {
+  .left,
+  .right {
+    float: left;
+    clear: left;
+  }
+}
+
+.form {
+  width: 0;
+  height: 0;
+  margin-left: 5%;
+  background: darken($lightBg, 10%);
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+  transition: height .5s ease, width .5s ease .5s;
+  
+  h2 {
+    width: 100%;
+    text-align: center;
+    color: $high;
+    font-size: 2rem;
+    margin: 1.5rem 0 3rem;
+  }
+  
+  form {
+    max-height: 100%;
+    height: auto;
+    
+    @media (max-width: $BP) {    
+      height: auto; 
+    }
+  }
+  
+  .section {
+    width: 40%;
+    margin: 0 5%;
+    height: calc(100% - 5rem);
+    max-height: 100%;
+    
+    @media (max-width: $BP) {
+      width: 90%;
+      height: auto;
+    }
+  }
+  
+  ::-webkit-input-placeholder,
+  :-moz-placeholder,
+  ::-moz-placeholder,
+  :-ms-input-placeholder {
+    color: $light;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid $light;
+    outline: none;
+    color: $high;
+    transition: border-color .5s ease;
+    
+    &:focus {
+      border-color: $high;
+    }
+    
+    &::invalid {
+      border-color: #B31B1B;
+    }
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    height: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  textarea {
+    resize: none;
+    height: 10rem;
+    line-height: 1.5rem;
+    
+    @media (max-width: $BP) {
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 2rem;
+    }
+  }
+  
+  .closeFormLabel,
+  .sendForm {
+    position: absolute;
+    bottom: 1rem;
+    width: 40%;
+    margin: 0 5%;
+    right: 0;
+    text-align: center;
+    border: 1px solid $light;
+    padding: .5rem;
+    background: inherit;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color .5s ease, border-color .5s ease;
+    
+    &:hover,
+    &:focus {
+      background-color: darken($lightBg, 15%);
+      border-color: $high;
+    }
+    
+    @media (max-width: $BP) {
+      position: relative;
+      width: 90%;
+      left: 0;
+      margin-top: 1em; 
+    }
+  }
+  
+  .closeFormLabel {
+    left: 0;
+    
+    @media (max-width: $BP) {
+      bottom: 1rem; 
+    }
+  }
+}
+
+input.showForm {
+  display: none;
+  
+  &:checked + .form {
+    width: 90%;
+    height: 85%;
+    box-shadow: 4px 5px 5px 5px darken($lightBg, 30%);
+    overflow: auto;
+    transition: width .5s ease, height .5s ease .5s;
+  }
+}
+
+.showFormLabel {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  width: 50%;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  color: $high;
+  border: 1px solid $light;
+  background: inherit;
+  z-index: 1;
+  transition: background-color .5s ease, border-color .5s ease;
+   
+    &:hover,
+    &:focus {
+      background-color: darken($lightBg, 5%);
+      border-color: $high;
+    }
+  
+  @media (max-width: $BP) {
+    width: 90%;
+    left: 5%;
+  }
+}
