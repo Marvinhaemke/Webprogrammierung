@@ -1,5 +1,6 @@
 
 
+@font-face{ font-family: 'aileronregular'; src: url('https://fontlibrary.org/de/font/aileron');}
 
 body {font-family: Playfair Display;}
 p {font-size: 2em; }
@@ -17,10 +18,10 @@ h3{font-family: 'aileronregular';
 }
 .akademie{ color: #86a4a9; padding: 4em;}
 
-.zitate{background-color: #86a4a9; color: white; grid: 100vw; margin-top: 200px; padding: 150px;
+.zitate{background-color: #86a4a9; color: white; grid: 100vw; margin-top: 200px; padding: 150px; margin-bottom: 50px;
 }
 
-.links{margin-left: 100px; margin-top: 200px; margin-bottom:400px; padding: 50px; }
+.banner{margin-left: 100px; margin-top: 200px; margin-bottom:400px; padding: 50px; background-image: url(logo.png); width: 100vw;}
 
 .quoter{
     font-size: 0.75em;
