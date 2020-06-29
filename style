@@ -1,4 +1,31 @@
 
-body {width: 800px; background-color: #86a4a9;}
-p {size: 16px; font-family: aileronregular}
-h1{color: #3d6870; font-family: Playfair Display;}
+
+
+body {font-family: Playfair Display;}
+p {font-size: 2em; }
+h1{ color: #3d6870; font-size: 4em; font-weight: 500;}
+h2{font-size: 3em;  color: #3d6870; font-weight: 400;}
+h3{font-family: 'aileronregular';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 0.75em;
+    color: #86a4a9;
+}
+
+
+.ueberuns { color: #8ba4a9; padding: 4em;
+}
+.akademie{ color: #86a4a9; padding: 4em;}
+
+.zitate{background-color: #86a4a9; color: white; grid: 100vw; margin-top: 200px; padding: 150px;
+}
+
+.links{margin-left: 100px; margin-top: 200px; margin-bottom:400px; padding: 50px; }
+
+.quoter{
+    font-size: 0.75em;
+    font-style: italic;
+}
+.quote{
+    padding-bottom: 50px;
+}
