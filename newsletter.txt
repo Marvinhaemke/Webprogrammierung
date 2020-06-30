@@ -1,0 +1,89 @@
+HTML:
+Ohne Gridsystem:
+
+<div class="Newsbestellen">
+    <form class="Newsletter">
+        <h2>Newsletter bestellen?</h2>
+        <label for="EmailNewsletter">Email:</label>
+        <input type="text" placeholder="Email-Adresse" id="EmailNewsletter" class="NewsletterEmail">
+        <button type="button" class="btn btn-default" id="bestellen">Bestellen</button>
+    </form>
+    <h2 class="Danke hidden">Vielen Dank!</h2>
+</div>
+
+Mit Gridsystem:
+
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+<div class="col-md-auto">
+    <form class="Newsletter">
+        <h2>Newsletter bestellen?</h2>
+        <label for="EmailNewsletter">Email:</label>
+        <input type="text" placeholder="Email-Adresse" id="EmailNewsletter" class="NewsletterEmail">
+        <button type="button" class="btn" id="bestellen">Bestellen</button>
+    </form>
+    <h2 class="Danke hidden">Vielen Dank!</h2>
+</div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
+CSS:
+
+.Newsbestellen{
+     position: fixed;
+     left: 50%;
+     margin-left: -228.258px;
+     text-align: center;
+ }
+.hidden {
+    display: none;
+}
+
+Javascript (Am Ende der HTML seite verlinken):
+
+var bestellbut = document.getElementById("bestellen");
+bestellbut.addEventListener("click", function () {
+     emailsend();
+});
+
+function emailsend() {
+    var request;
+
+    try {
+        // Opera 8.0+, Firefox, Safari
+        request = new XMLHttpRequest();
+    } catch (e) {
+        // Internet Explorer
+        try {
+            request = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                request = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                alert("Your browser broke!");
+                return false;
+            }
+        }
+    }
+// Post Anfrage öffnen
+    request.open("POST", "ajax.php", true);
+
+// Anfrage senden, auf die das PHP Script das Gästebuch zurückgibt
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send(`email=${document.querySelector('.NewsletterEmail').value}`);    // calls the send() method with datas as parameter
+
+//die zurückgegebene Liste in Html Listenelemente umwandeln
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            console.log(request.responseText);
+            document.querySelector(".Newsletter").classList.toggle("hidden");
+            document.querySelector(".Danke").classList.toggle("hidden");
+            return;
+
+        }
+    }
+}
+
