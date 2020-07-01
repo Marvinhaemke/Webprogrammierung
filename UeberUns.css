@@ -1,0 +1,37 @@
+h4 {  
+    font-family: 'AileronSemibold';
+    font-style: normal;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #3d6870;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-size: 0.8em;
+
+  }
+
+p {
+  font-family: 'Playfair Diplay';
+  font-weight: lighter;
+}
+
+img {
+    border: 2px solid red;
+    background-color: #FFFFFF;
+    border-radius:100%;
+    max-width: 150px;
+    height: auto;
+    margin: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 5% 15% 5% 15%;
+}
+
+.scout {
+  flex-basis: 33%;
+}
