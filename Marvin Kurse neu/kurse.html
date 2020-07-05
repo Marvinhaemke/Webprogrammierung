@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/aileron" type="text/css"/>
+    <!--<link rel="stylesheet" href="style.css">-->
+
+
+    <link rel="stylesheet" type="text/css" href="kursestyle.css">
+    <script src="kursescript.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container header" style="margin-bottom: 4em;">
+    <div class="row">
+
+        <div class="col-sm-3">
+            <a href="startseite.html">
+                <img src="logofull.jpg">
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ueber_uns/"  ><h3 class="nav">Über uns</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ausbildung/" ><h3 class="nav kurse">Kurse</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="kontakt/" ><h3 class="nav">Kontakt</h3></a>
+        </div>
+    </div>
+</div>
+
+
+<h1 style="margin-bottom: 1em; text-align: center">Unsere NLP- und Coaching-Ausbildung</h1>
+<div class="color">
+
+<p>
+    Wenn Sie noch nicht bei uns waren, ist der beste Einstieg der 6-tägige <b>NLP-EXPLORER I</b>.
+    Danach haben Sie einen guten ersten Eindruck von NLP und können leicht entscheiden, ob und wie Sie weitermachen wollen.
+    Sind Sie sich sicher, dass Sie die Ausbildung machen wollen, können Sie sich zwischen verschiedenen Paketen entscheiden - dann kommen Sie auch in den Genuss der Paketrabatte.
+    Buchen Sie 2 Monate vor Kursbeginn, winken 10% Early Bird Rabatt.<br><br>
+    <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+    <br>
+</p>
+</div>
+<div class="list-group" id="kurse">
+    <template>
+        <div id="kurs">
+    <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo" id="demobutton">Grillfest <img src="icons8-plus-math-52.png" class="plus"> </button>
+
+    <div id="demo" class="collapse">
+        <!-- Modal -->
+        <h2 class="kursname">Grillfest</h2>
+        <p class="kurstext">Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) </br>
+            Investition: ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</p>
+        <div class="kosten">
+        <h1>Preis: </h1>
+        <h1 id="preis">200€</h1>
+        </div>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal" id="buchenButton" >Buchen</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Header</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="container" id = "kalcont">
+
+                            <div class="row">
+                                <div class="span12">
+                                    <table class="table-condensed table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="7">
+                        <span class="btn-group">
+<!--                            <a class="btn"><i class="icon-chevron-left"></i></a>-->
+                        	<a class="btn active" id="monthYear">Februar 2020</a>
+<!--                        	<a class="btn"><i class="icon-chevron-right"></i></a>-->
+                        </span>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="muted">29</td>
+                                            <td class="muted">30</td>
+                                            <td class="muted">31</td>
+                                            <td>1</td>
+                                            <td>2</td>
+                                            <td>3</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>6</td>
+                                            <td>7</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                            <td>10</td>
+                                            <td>11</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</td>
+                                            <td>13</td>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>17</td>
+                                            <td>18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>19</td>
+                                            <td>20</td>
+                                            <td>21</td>
+                                            <td>22</td>
+                                            <td>23</td>
+                                            <td>24</td>
+                                            <td>25</td>
+                                        </tr>
+                                        <tr>
+                                            <td>26</td>
+                                            <td>27</td>
+                                            <td>28</td>
+                                            <td class="muted" id="day28">1</td>
+                                            <td class="muted" id="day29">2</td>
+                                            <td class="muted" id="day30">3</td>
+                                            <td class="muted" id="day31">4</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <form class="form" action="Karte.php" method="post">
+                            <label >Vorname: </label>
+                            <input type="text" placeholder="Vorname" name="Vorname"><br>
+                            <label>Nachname: </label>
+                            <input type="text" placeholder="Nachname" name="Nachname"><br>
+                            <label>Stadt: </label>
+                            <input type="text" placeholder="Stadt" name="Stadt" >
+                            <label>PLZ: </label>
+                            <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em"><br>
+                            <label>Straße: </label>
+                            <input type="text" placeholder="Straße" name="Strasse">
+
+                            <label>Nr.: </label>
+                            <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em">
+
+                            <input type="hidden" id="kursName" name="Kurs" value="Grillfest">
+                            <input type="hidden" id="standort" name="Standort" value="Im Kloster 61194 Niddatal">
+                            <input type="submit" value="Submit" id="buchen" class="btn">
+
+                            <!--<a class="btn buchen" href=`Karte.html/?adresse=`>Buchen</a>-->
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+        </div>
+    </template>
+</div>
+<h1 style="margin-bottom: 1em; text-align: center">Specials und Zusatzmodule</h1>
+<div class="color">
+    <p>
+        Unsere Ausbildungsreihen werden durch Specials komplettiert. In Ihrer Gesamtrechnung sind ein bis zwei Standard Specials (mit * markiert) enthalten.
+        Gerne können Sie längere oder aufwändigere Specials für Ihre Ausbildungsreihen wählen. Sie zahlen dann lediglich einen Upgradepreis.
+        Alle Specials können auch als offenes Seminar gebucht werden, auch wenn Sie bislang noch an keiner unserer Ausbildung teilgenommen haben. <br> <br>
+        <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+    </p>
+</div>
+
+<div class="list-group" id="kurse2">
+
+
+</div>
+
+
+<!--<button>Ajax</button>-->
+<div class="Newsbestellen">
+    <div class="Newsletter">
+        <h2>Newsletter bestellen?</h2>
+        <label for="EmailNewsletter">Email:</label>
+        <input type="text" placeholder="Email-Adresse" id="EmailNewsletter" class="NewsletterEmail">
+        <button type="button" class="btn btn-default" id="bestellen">Bestellen</button>
+    </div>
+    <h2 class="Danke hidden">Vielen Dank!</h2>
+</div>
+
+
+<div class="footer">
+    <div>
+        <h2>EXPLORERS' AKADEMIE</h2>
+        <h3>Dr. Frank Görmar</h3>
+
+    </div>
+    <div>
+        <h2>SOCIAL</h2>
+        <a href="https://de-de.facebook.com/explorers.akademie"><h3>Facebook -> </h3></a>
+        <h3>Tel. +49 69/ 48005636</h3>
+        <h3>Skype: frank.goermar</h3>
+        <h3>E-Mail: info@explorers-akademie.de</h3>
+    </div>
+    <div>
+        <h2>AUTHORS</h2>
+        <h3> BY M.HAEMKE, <br> B.BEHRENS, & <br> P.WAGNER - GÖRMAR</h3>
+
+        </div>
+    </div>
+
+<!--
+<div class="footer">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-sm-2">
+                <h3>E X P L O R E R S' &nbsp; A K A D E M I E</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3> S O C I A L</h3>
+            </div>
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-2">
+                <h3> B Y &nbsp; M. H A E M K E, &nbsp; B. B E H R E N S, &nbsp; &  P. W A G N E R - G Ö R M A R</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer2">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-sm-2">
+                <h3>Dr. Frank Görmar</h3>
+            </div>
+            <div class="col-sm-2">
+                <a href="https://de-de.facebook.com/explorers.akademie"><h3>Facebook -> </h3></a>
+            </div>
+
+            <div class="col-sm-8">
+
+            </div>
+
+            <div class="col-sm-2">
+                <h3>Tel. +49 69/ 48005636</h3>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+            <div class="col-sm-2">
+                <h3>Skype: frank.goermar</h3>
+            </div>
+            <div class="col-sm-10">
+            </div>
+            <div class="col-sm-2">
+                <h3>E-Mail: info@explorers-akademie.de</h3>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+        </div>
+    </div>
+</div>
+-->
+
+</body>
+</html>
