@@ -1,0 +1,185 @@
+  
+
+body {
+  font-family: Playfair Display;
+  font-weight: lighter;
+}
+
+p {
+  font-size: 2.5em;
+}
+
+
+h1{
+  color: #3d6870;
+  font-size: 5em;
+  font-weight: 900;
+}
+
+
+h2{
+  font-size: 4em;  
+  color: #3d6870; 
+  font-weight: 400;
+}
+
+
+h3, h4, h5 , h6{
+  font-family: 'AileronRegular';
+  font-weight: lighter;
+  font-style: normal;
+  font-size: 0.9em;
+  color:rgba(61,104,112,.4);
+  text-align: left;
+    
+}
+
+
+h4{
+  color: white;
+}
+
+
+h5{
+  font-size: 1.5em; 
+  font-family: Playfair Display;
+}
+
+
+h3, h4 {
+   text-transform: uppercase; 
+   letter-spacing: 0.2em
+}
+
+
+
+/* Navbar und Banner*/
+.bannerbild{
+  background-image: url(logo.png); 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.banner{
+  margin-left: 50px; 
+  margin-bottom: 400px; 
+  padding-left: 100px;  
+  padding-top: 200px;  
+  padding-bottom: 300px; 
+}
+
+/* ueber uns, akademie, zitate*/
+
+
+.ueberuns, .akademie, .zitate { 
+  color:rgba(61,104,112,.4); 
+  padding: 150px;
+}
+
+
+
+
+
+
+/* Teilnehmerstimmen */
+
+
+.zitate{
+  background-color:rgba(61,104,112,.4); 
+  color: white; 
+}
+
+.quoter{
+    font-size: 0.75em;
+    font-style: italic;
+}
+.quote{
+    padding-bottom: 50px;
+}
+
+
+
+
+
+/* Newsletter*/
+.jumbotron{ 
+  margin-top: 200px; 
+  margin-bottom: 200px;
+}
+
+
+.btn{ 
+  border-radius: 0rem;
+   outline: none; 
+   border: none; 
+   background-color: rgba(61,104,112,.4) ; 
+   color: white;
+  }
+
+.hidden {
+ display: none;
+}
+
+#email, #EmailNewsletter, #bestellen {
+   color: #3d6870; 
+   font-family: 'AileronRegular'; }
+
+#bestellen{ 
+  color: white;
+}
+
+
+
+/* Footer*/
+
+
+.footer{ 
+  padding: 50px; 
+}
+
+.footer2{
+  padding-left: 50px; 
+  padding-bottom: 100px;
+ }
+
+
+
+
+/* CSS für Bildergalerie*/
+
+.carousel{
+  margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 750px;  /* Anpassbar - Höhe-Breite: 3:4 (sonst sind Bilder verzerrt) */
+    width: 1000px;   
+    background-color:white; /*Hintergundfarbe - kann angepasst werden */
+    justify-content: center;
+    
+}
+
+/* Punkt-Indikatoren */
+.carousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    max-height: 750px;  /* Anpassbar - Höhe-Breite: 3:4 (sonst sind Bilder verzerrt) */
+    max-width: 1000px;   
+    object-fit: contain;
+    outline-color: white;
+    border-color: white;
+}
+
+
+
+
+
+ 

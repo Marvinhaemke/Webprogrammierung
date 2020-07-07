@@ -1,0 +1,130 @@
+body {
+    font-family: 'Playfair Display'; 
+    font-weight: lighter;
+}
+
+
+
+h1{
+    font-family: 'Playfair Display';
+    color: #3d6870;
+    font-size: 5em;
+    font-weight: 900;
+    text-align: center;
+    }
+
+
+h2{
+    font-size: 4em;  
+    color: #3d6870; 
+    font-weight: 400;
+}
+
+h3, h4, h5 , h6{
+    font-family: 'AileronRegular';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 0.9em;
+    color:rgba(61,104,112,.4);
+    text-align: left;
+    
+}
+h4{
+  color: #3d6870;
+}
+h5{
+  font-size: 1.5em;
+   font-family: Playfair Display;
+}
+
+h3, h4 { text-transform: uppercase;
+     letter-spacing: 0.2em}
+
+
+
+
+p {
+color:rgba(61,104,112,.4);
+font-family: 'Playfair Diplay';
+font-weight: lighter;
+font-size: 1.4em
+}
+
+
+
+
+img {
+  background-color: #FFFFFF;
+  border-radius:100%;
+  max-width: 150px;
+  height: auto;
+  margin: 10px;
+}
+
+.flex-container {
+display: flex;
+flex-direction: row;
+justify-content: center;
+flex-wrap: wrap;
+margin: 5% 15% 5% 15%;
+}
+
+.header{
+ width: 100vw;
+ background-color: rgba(61,104,112,.4);
+ padding:15%;
+ padding-top: 4em;
+ padding-bottom: 4em;
+ margin-bottom: 6em;
+ margin-top: 6em;
+}
+
+.scout {
+flex-basis: 33%;
+font-family: 'AileronRegular';
+color:rgba(61,104,112,.4);
+padding: 1em;
+
+}
+
+
+
+
+/* Newsletter*/
+.jumbotron{ 
+  margin-top: 200px;
+   margin-bottom: 200px;
+  }
+
+
+.btn{ 
+  border-radius: 0rem; 
+  outline: none; 
+  border: none; 
+  background-color: rgba(61,104,112,.4) ; 
+  color: white;}
+
+.hidden {
+ display: none;
+}
+
+#email, #EmailNewsletter, #bestellen { 
+  color: #3d6870; 
+  font-family: 'AileronRegular'; 
+}
+
+#bestellen{ 
+  color: white;
+}
+
+
+
+.footer{ 
+  padding: 50px; 
+}
+
+.footer2{
+  padding-left: 50px; 
+  padding-bottom: 100px; }
+
+
