@@ -1,0 +1,273 @@
+html{
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Playfair Display;
+    font-weight: lighter;
+}
+
+
+p {
+    font-size: 2.5em;
+}
+
+h1{
+    color: #3d6870;
+    font-size: 5em;
+    font-weight: 900;
+}
+
+
+h2{
+    font-size: 4em;
+    color: #3d6870;
+    font-weight: 400;
+}
+
+
+h3, h4, h5 , h6{
+    font-family: 'AileronRegular';
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 0.9em;
+    color:rgba(61,104,112,.4);
+    text-align: left;
+
+}
+
+
+h4{
+    color: white;
+}
+
+
+h5{
+    font-size: 1.5em; font-family: Playfair Display;
+}
+
+
+h3, h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.2em}
+
+
+
+.hidden {
+    display: none;
+}
+
+.footer{
+    padding: 50px;
+    margin-left: -30vw;
+    width: 100vw;
+}
+
+
+
+.footer2{
+    padding-left: 50px;
+    padding-bottom: 100px;
+    margin-left: -30vw;
+    width: 100vw;
+}
+
+
+
+/* Newsletter*/
+.jumbotron{
+    margin-top: 200px;
+    margin-bottom: 200px;}
+
+
+
+.hidden {
+    display: none;
+
+}
+
+#email, #EmailNewsletter, #bestellen {
+    color: #3d6870;
+    font-family: 'AileronRegular';
+}
+
+
+
+#bestellen {
+    color: white;
+}
+
+
+
+body {
+    margin-top: 2em;
+    margin-left: 15%;
+    width:70%;
+    text-align: center;
+}
+
+
+
+.btn {
+    background-color: #3d6870;
+    border: none;
+    border-radius: 0rem;
+    outline: none;
+    color: white;
+}
+
+
+.btn:focus {
+    box-shadow: none;
+}
+
+
+h4 {
+    text-align: left;
+}
+#kalcont {
+    float: left;
+}
+
+.form {
+    /*float: left;*/
+    text-align: left;
+}
+#kurse{
+    /*background-color: #8ba4a9;*/
+
+    margin-bottom: 4em;
+
+}
+
+.hidden {
+    display: none;
+}
+
+p{
+    font-size: 1em;
+}
+.kosten{
+
+    text-align: right;
+    margin-right: 30px;
+}
+.buchenbut{
+    margin-bottom: 20px;
+    background-color: rgba(61,104,112,.4);
+}
+.btn-block{
+    height: 5em;
+    color: white;
+}
+a {
+
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+
+    text-decoration: none;
+}
+.nav{
+    margin-top: 70px;
+    font-size: 2em;
+}
+.nav:hover , .nav:focus{
+    color: #3d6870;
+}
+.modbutton{
+    height: 2em;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    text-align: left;
+    position: relative;
+
+}
+.modbutton img{
+    filter: invert(100%);
+}
+.modbutton:hover img{
+    filter: invert(0%);
+}
+.blackbutton{
+    background-color: rgba(61,104,112,.4);
+    color:black;
+
+}
+.blackbutton img{
+    filter: invert(0%);
+}
+.blackbutton:hover, .blackbutton:focus{
+    color:white;
+}
+
+.blackbutton:hover img{
+    filter: invert(100%);
+}
+
+.plus{
+    height: 1.5em;
+    position: absolute;
+    right: 8px;
+}
+.color{
+    margin-left: -15vw;
+    width: 100vw;
+    background-color: rgba(61,104,112,.4);
+    padding-top: 4em;
+
+    padding-bottom: 4em;
+    margin-bottom: 6em;
+    margin-top: 4em;
+    text-align: left;
+
+}
+.color h1 {
+    margin-left: 15vw;
+}
+.color p {
+    font-size: 1.5em;
+    margin-left: 15vw;
+    color: white;
+    width: 70vw;
+}
+.header{
+    width: 100vw;
+    height: 200px;
+    overflow: hidden;
+    max-width: 100vw;
+    margin-left: -15vw;
+    margin-bottom: 4em;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+    background-color: white;
+}
+.footerrow {
+    top: 1em;
+}
+
+.row {
+    width: 70vw;
+    margin-left: 15vw;
+}
+.footerrow{
+    width: 90vw !important;
+    font-family: AileronRegular;
+}
+.kurse{
+    text-decoration: underline #3d6870;
+}
+.list-group {
+    margin-left: 5vw;
+    width: 60vw;
+}
+
+.nav{
+    margin-top: 70px;
+    font-size: 1em;
+}
+.nav:hover , .nav:focus{
+    color: #3d6870;
+}
