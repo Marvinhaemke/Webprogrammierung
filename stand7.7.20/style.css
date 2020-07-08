@@ -1,4 +1,7 @@
   
+html{
+  overflow-x: hidden;
+} 
 
 body {
   font-family: Playfair Display;
@@ -64,11 +67,31 @@ h3, h4 {
 
 .banner{
   margin-left: 50px; 
-  margin-bottom: 400px; 
   padding-left: 100px;  
   padding-top: 200px;  
   padding-bottom: 300px; 
 }
+
+
+.nav:hover , .nav:focus{
+  color: #3d6870;
+}
+
+
+
+
+.pfeil{
+  padding: 4em;
+  margin-bottom: 5em; 
+
+
+}
+
+.pfeil2{
+
+  padding-left: 6em;
+}
+
 
 /* ueber uns, akademie, zitate*/
 
