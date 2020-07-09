@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Scripts und Stylesheets, damit Bootstrap funktioniert -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Einbindung einer Font -->
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/aileron" type="text/css"/>
+
+    <!-- Das Stylesheet zu dieser Seite -->
+    <link rel="stylesheet" type="text/css" href="ausbildung.css">
+    <!-- Das Script zu dieser Seite -->
+    <script src="kursescript.js"></script>
+
+    <title>Unsere NLP- und Coaching-Ausbildung    </title>
+</head>
+<body>
+<!-- Header mit einem Logo und Links zu den anderen Seiten.
+    Der Header ist durch position: sticky; immer am oberen Rand der Seite zu finden
+    Die Positionierung der einzelnen Elemente erfolgt über das Bootstrap Grid System
+ -->
+<div class="container header" style="margin-bottom: 4em;">
+    <div class="row headertext">
+
+        <div class="col-sm-3">
+            <a href="startseite.html">
+                <img src="logofull.jpg">
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ueberuns.html"><h3 class="nav">Über uns</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ausbildung.html"><h3 class="nav">Ausbildung</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#unten"><h3 class="nav">Kontakt</h3></a>
+        </div>
+    </div>
+</div>
+<!-- Farblich hinterlegter Textabschnitt -->
+<h1 style="margin-bottom: 2em; margin-top: 2em; text-align: center">Unsere NLP- und Coaching-Ausbildung</h1>
+<div class="color">
+
+    <p>
+        Wenn Sie noch nicht bei uns waren, ist der beste Einstieg der 6-tägige <b>NLP-EXPLORER I</b>.
+        Danach haben Sie einen guten ersten Eindruck von NLP und können leicht entscheiden, ob und wie Sie weitermachen wollen.
+        Sind Sie sich sicher, dass Sie die Ausbildung machen wollen, können Sie sich zwischen verschiedenen Paketen entscheiden - dann kommen Sie auch in den Genuss der Paketrabatte.
+        Buchen Sie 2 Monate vor Kursbeginn, winken 10% Early Bird Rabatt.<br><br>
+        <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+        <br>
+    </p>
+</div>
+<div class="list-group" id="kurse">
+    <!-- Das Template für Kurse.
+        In javascript wird dieses Template importiert, anhand der Eigenschaften der Kurse verändert und an das div kurse angehängt.
+     -->
+    <template>
+        <div id="kurs">
+            <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+            <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo" id="demobutton">Grillfest <img src="icons8-plus-math-52.png" class="plus"> </button>
+            <!-- Das Collapsible mit der Kursbeschreibung -->
+            <div id="demo" class="collapse">
+                <!-- Modal -->
+                <h2 class="kursname">Grillfest</h2>
+                <p class="kurstext">Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) </br>
+                    Investition: ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</p>
+                <div class="kosten">
+                    <h1>Preis: </h1>
+                    <h1 id="preis">200€</h1>
+                </div>
+
+                <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+                <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal" id="buchenButton" >Buchen</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal Inhalt-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--  Der Header des Modals mit dem Kursnamen -->
+                                <h3 class="modal-title">Grillfest</h3>
+                                <!-- Dieser Button ist zum schließen des Modal -->
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <!-- Hier ist der Inhalt des Modals  -->
+                            <div class="modal-body">
+                                <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                    Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                    Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                                 -->
+                                <form class="form" action="Karte.php" method="post">
+                                    <label>Termin: </label><br>
+                                    <select class="options" name="Datum">
+                                        <option value="1. August 2019">1. August 2019</option>
+                                        <option value="1. August 2019">1. August 2019</option>
+                                        <option value="1. August 2019">1. August 2019</option>
+
+                                    </select> <br>
+                                    <label >Vorname:</label><br>
+                                    <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                    <label>Nachname: </label><br>
+                                    <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                    <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                    <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                    <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                    <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                    <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                    <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                    <input type="hidden" id="kursName" name="Kurs" value="Grillfest">
+                                    <input type="hidden" id="standort" name="Standort" value="Im Kloster 61194 Niddatal">
+                                    <h2>Preis: </h2>
+                                    <h2 class="Preis"> 100€</h2>
+                                    <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </template>
+</div>
+
+<!-- Farblich hinterlegter Textabschnitt -->
+<h1 style="margin-bottom: 1em; text-align: center">Specials und Zusatzmodule</h1>
+<div class="color">
+    <p>
+        Unsere Ausbildungsreihen werden durch Specials komplettiert. In Ihrer Gesamtrechnung sind ein bis zwei Standard Specials (mit * markiert) enthalten.
+        Gerne können Sie längere oder aufwändigere Specials für Ihre Ausbildungsreihen wählen. Sie zahlen dann lediglich einen Upgradepreis.
+        Alle Specials können auch als offenes Seminar gebucht werden, auch wenn Sie bislang noch an keiner unserer Ausbildung teilgenommen haben. <br> <br>
+        <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+    </p>
+</div>
+<!-- Zweite Gruppe von Kursen, in Javascript wird anhand der in der Datenbank hinterlegten special eigenschaft entschieden, ob ein Kurs in die 1. oder 2. Gruppe gehört -->
+<div class="list-group" id="kurse2">
+
+
+</div>
+
+
+<!--
+Newsletter
+
+über Ajax wird die eingegebene E-Mail Adresse an den Server geschickt.
+Mithilfe von Javascript wird die Klasse hidden so getoggelt, dass nach bestellen des Newsletters, Vielen Dank angezeigt wird
+
+-->
+<div class="container news">
+    <div class="jumbotron text-center">
+        <form class="Newsletter">
+            <h2>Explorers' Newsletter</h2>
+            <label for="EmailNewsletter" id="email">Email:</label>
+            <input type="text" placeholder="Email-Adresse" id="EmailNewsletter" class="NewsletterEmail">
+            <button type="button" class="btn" id="bestellen">Bestellen</button>
+        </form>
+        <h2 class="Danke hidden">Vielen Dank!</h2>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- HTML für den Footer  -->
+
+<div class="footer"  id="unten">
+    <div class="container-fluid ">
+        <div class="row footerrow">
+            <div class="col-sm-2">
+                <h3>explorers' akademie</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3> social</h3>
+            </div>
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-2">
+                <h3> by  M. hämke,  B. Bahlinger,  &  P. Wagner- Görmar</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer2">
+    <div class="container-fluid ">
+        <div class="row footerrow">
+            <div class="col-sm-2">
+                <h6>Dr. Frank Görmar</h6>
+            </div>
+            <div class="col-sm-2">
+                <a href="https://de-de.facebook.com/explorers.akademie"><h6>Facebook -> </h6></a>
+            </div>
+
+            <div class="col-sm-8">
+
+            </div>
+
+            <div class="col-sm-2">
+                <h6>Tel. +49 69/ 48005636</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+            <div class="col-sm-2">
+                <h6>Skype: frank.goermar</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+            <div class="col-sm-2">
+                <h6>E-Mail: info@explorers-akademie.de</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
