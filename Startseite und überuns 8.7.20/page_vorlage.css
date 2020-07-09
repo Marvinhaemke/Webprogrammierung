@@ -23,7 +23,7 @@ h2 {
     font-weight: 400;
 }
 
-h3, h4, h5, p, .nav {
+h3, h4, h5, .footer p, .nav {
     font-family: AileronRegular;
     font-weight: lighter;
     font-style: normal;
@@ -41,10 +41,6 @@ h3, .nav {
 /* HEADER & NAVBAR */
 
 .header {
-    margin-bottom: 4em;
-}
-
-.header{
   width: 100vw;
   height: 150px;
   overflow: hidden;
@@ -56,7 +52,7 @@ h3, .nav {
   background-color: white;
 }
 .header img{
-    margin: 0;
+  margin: 0;
 }
 
 .headertext{
@@ -70,44 +66,66 @@ a {
     text-align: center;
 }
 
-a:hover, a:focus {
-    text-decoration: none;
-}
-
-.nav{
+.nav {
     margin-top: 70px;
     font-size: 1em;
 }
 
 .nav:hover , .nav:focus {
     color: #3d6870;
+    text-decoration: none;
 }
 
 
 /* BANNER für STARTSEITE */
 /* Löschen, wenn keine Startseite */
 
-.bannerbild{
-    background-image: url(logo.png); 
-    background-repeat: no-repeat;
-    background-size: cover;
+.bannerbild {
+  background-image: url(logo.png); 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .banner{
-    margin-left: 50px; 
-    padding-left: 100px;  
-    padding-top: 200px;  
-    padding-bottom: 300px; 
+  margin-left: 50px; 
+  padding-left: 100px;  
+  padding-top: 200px;  
+  padding-bottom: 300px; 
 }
 
 
-/* SEITENTITEL */
+/* SEITENTITEL & INTRO */
 /* Für Startseite löschen */
+/* .top --> Introtext */
 
 .page-title {
-    margin-bottom: 3em; 
-    margin-top: 2em; 
-    text-align: center;
+  margin-bottom: 3em; 
+  margin-top: 2em; 
+  text-align: center;
+}
+
+.top {
+  background-color: rgba(61,104,112,.4);
+  padding:15%;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  margin-bottom: 6em;
+  margin-top: 6em;
+  margin-left: -15vw;
+  text-align: left;
+}
+
+.top h1 {
+  margin-left: 15vw;
+}
+
+.top p {
+  font-size: 1.5em;
+  margin-left: 15vw;
+  color: white;
+  width: 70vw;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 
