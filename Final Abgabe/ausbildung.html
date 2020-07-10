@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Scripts und Stylesheets, damit Bootstrap funktioniert -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- Einbindung einer Font -->
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/aileron" type="text/css"/>
+
+    <!-- Das Stylesheet zu dieser Seite -->
+    <link rel="stylesheet" type="text/css" href="ausbildung.css">
+    
+
+    <title>Unsere NLP- und Coaching-Ausbildung    </title>
+</head>
+<div>
+<!-- Header mit einem Logo und Links zu den anderen Seiten.
+    Der Header ist durch position: sticky; immer am oberen Rand der Seite zu finden
+    Die Positionierung der einzelnen Elemente erfolgt über das Bootstrap Grid System
+ -->
+<div class="container header" style="margin-bottom: 4em;">
+    <div class="row headertext">
+
+        <div class="col-sm-3">
+            <a href="startseite.html">
+                <img src="logofull.jpg">
+            </a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ueberuns.html"><h3 class="nav">Über uns</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="ausbildung.html"><h3 class="nav">Ausbildung</h3></a>
+        </div>
+        <div class="col-sm-3">
+            <a href="#unten"><h3 class="nav">Kontakt</h3></a>
+        </div>
+    </div>
+</div>
+<!-- Farblich hinterlegter Textabschnitt -->
+<h1 style="margin-bottom: 2em; margin-top: 2em; text-align: center">Unsere NLP- und Coaching-Ausbildung</h1>
+<div class="color">
+
+    <p>
+        Wenn Sie noch nicht bei uns waren, ist der beste Einstieg der 6-tägige <b>NLP-EXPLORER I</b>.
+        Danach haben Sie einen guten ersten Eindruck von NLP und können leicht entscheiden, ob und wie Sie weitermachen wollen.
+        Sind Sie sich sicher, dass Sie die Ausbildung machen wollen, können Sie sich zwischen verschiedenen Paketen entscheiden - dann kommen Sie auch in den Genuss der Paketrabatte.
+        Buchen Sie 2 Monate vor Kursbeginn, winken 10% Early Bird Rabatt.<br><br>
+        <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+        <br>
+    </p>
+</div>
+    <div class="list-group" id="kurse">
+        <!-- Das Template für Kurse.
+            In javascript wird dieses Template importiert, anhand der Eigenschaften der Kurse verändert und an das div kurse angehängt.  Zumindest war dies der urspr�ngliche Plan, 
+		beim hochladen auf den Server stellte sich heraus, dass der Server die Beschreibung nicht aus der mysql Datenbank laden konnte, da diese anscheinend zu lang war.
+		Aufgrund der relativ kurzen verbleibenden Zeit, habe ich mich dazu entschieden die Kurse nicht mehr dynamisch aus einer Datenbank zu laden, sondern direkt in die Webseite einzubauen
+         -->
+        <template>
+            <div id="kurs">
+                <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+                <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo" id="demobutton">Grillfest <img src="icons8-plus-math-52.png" class="plus"> </button>
+                <!-- Das Collapsible mit der Kursbeschreibung -->
+                <div id="demo" class="collapse">
+                    <!-- Modal -->
+                    <h2 class="kursname">Grillfest</h2>
+                    <p class="kurstext">Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) <br>
+                        Investition: ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</p>
+                    <div class="kosten">
+                        <h1>Preis: </h1>
+                        <h1 id="preis">200€</h1>
+                    </div>
+
+                    <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+                    <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal" id="buchenButton">Buchen</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal Inhalt-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!--  Der Header des Modals mit dem Kursnamen -->
+                                    <h3 class="modal-title">Grillfest</h3>
+                                    <!-- Dieser Button ist zum schließen des Modal -->
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                                </div>
+                                <!-- Hier ist der Inhalt des Modals  -->
+                                <div class="modal-body">
+                                    <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                        Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                        Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                                     -->
+                                    <form class="form" action="Karte.php" method="post">
+                                        <label>Termin: </label><br>
+                                        <select class="options" name="Datum">
+                                            <option value="1. August 2019">1. August 2019</option>
+                                            <option value="1. August 2019">1. August 2019</option>
+                                            <option value="1. August 2019">1. August 2019</option>
+
+                                        </select> <br><br>
+                                        <label>Vorname:</label><br>
+                                        <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                        <label>Nachname: </label><br>
+                                        <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                        <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                        <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                        <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                        <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                        <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                        <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                        <input type="hidden" id="kursName" name="Kurs" value="Grillfest">
+                                        <input type="hidden" id="standort" name="Standort" value="Im Kloster 61194 Niddatal">
+                                        <h2>Preis: </h2>
+                                        <h2 class="Preis"> 100€</h2>
+                                        <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                                    </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                                    <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+        <div id="kurs1">
+            <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+            <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo0" id="button0">Explorers NLP Kompakt<img src="icons8-plus-math-52.png" class="plus"></button>
+            <!-- Das Collapsible mit der Kursbeschreibung -->
+            <div id="demo0" class="collapse">
+                <!-- Modal -->
+                <h2 class="kursname">Explorers NLP Kompakt</h2>
+                <div class="kurstext"><h3>"Erkenne dich selbst und sei überrascht, was in dir steckt!"</h3>
+                <img src="NLP-Explorer-2011%2025.09.2011%2018-36-33%20500x155.jpeg">
+                <p>Explorers' NLP: die Macht von Emotionen.
+                    Entdecken Sie neue Möglichkeiten für Beruf und Privatleben. An diesem Klosterwochenende laden wir Sie zu Gedankenexperimenten ein. Sie erleben das Potenzial Ihrer Gedanken, Ihrer Haltung und Emotionen neu. Viele unsere Teilnehmer berichten uns noch nach Jahren über die anhaltenden Verbesserungen in Ihrem (Berufs-) Leben. Der Explorers' NLP-Kompakt beinhaltet für Sie:
+                </p><ul>
+                <li>Die Chance: Neurophysiologische Grundlagen der Wahrnehmung</li>
+                <li>Unser Weltbild: Vordergrund und Hintergrund</li>
+                <li>Praxis: Schnelleinstieg ins angewandte NLP</li>
+                <li>Praxis: Gedankenlesen fur genauere Beobachter</li>
+                <li>Beruflicher Erfolg und Aufmerksamkeitslenkung</li>
+                <li>Praxis: Andere besser verstehen - zwischen Angleichen und Führen</li>
+                <li>Praxis: Mentales Selbstcoaching - Ziele zum Leben erwecken und verankern</li>
+                <li>Menschen kennenlernen in einer Gruppe von sympathischen Neugierigen</li>
+            </ul>
+                Teilnehmerinterviews: <br>
+                <iframe width="352" height="240" src="https://www.youtube.com/embed/fKBCjkHhQXU">
+                </iframe>
+                <iframe width="352" height="240" src="https://www.youtube.com/embed/Vb9CTagpM0Y">
+                </iframe>
+                <iframe width="352" height="240" src="https://www.youtube.com/embed/eIPYMb03F6Q">
+                </iframe>
+                <iframe width="352" height="240" src="https://www.youtube.com/embed/32NPZ1_ehao">
+                </iframe>
+                <br> <br>
+                <h3>Scout: Dr. Frank Görma</h3>
+                <br> <br>
+                Wir freuen uns darauf, Sie kennen zu lernen!
+
+                </div>
+                <div class="kosten">
+                    <h1>Preis: </h1>
+                    <h1 id="preis1">250€</h1>
+                </div>
+
+                <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+                <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal0" id="buchenButton0">Buchen</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal0" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal Inhalt-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--  Der Header des Modals mit dem Kursnamen -->
+                                <h3 class="modal-title">Explorers NLP Kompakt</h3>
+                                <!-- Dieser Button ist zum schließen des Modal -->
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+
+                            </div>
+                            <!-- Hier ist der Inhalt des Modals  -->
+                            <div class="modal-body">
+                                <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                    Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                    Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                                 -->
+                                <form class="form" action="Karte.php" method="post">
+                                    <label>Termin: </label><br>
+                                    <select class="options" name="Datum"><option value="12. August 2020">12. August 2020</option><option value="27. August 2020">27. August 2020</option><option value="20. September 2020">20. September 2020</option></select> <br><br>
+                                    <label>Vorname:</label><br>
+                                    <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                    <label>Nachname: </label><br>
+                                    <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                    <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                    <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                    <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                    <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                    <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                    <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                    <input type="hidden" id="kursname1" name="Kurs" value="Explorers NLP Kompakt">
+                                    <input type="hidden" id="standort1" name="Standort" value="Im Kloster 61194 Niddatal">
+                                    <h2>Preis: </h2>
+                                    <h2 class="Preis">250€</h2>
+                                    <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><div id="kurs2">
+        <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+        <button type="button" class="btn btn-block modbutton blackbutton" data-toggle="collapse" data-target="#demo1" id="button1">NLP Explorer 1 (zert. NLP Basic, DVNLP)<img src="icons8-plus-math-52.png" class="plus"></button>
+        <!-- Das Collapsible mit der Kursbeschreibung -->
+        <div id="demo1" class="collapse">
+            <!-- Modal -->
+            <h2 class="kursname">NLP Explorer 1 (zert. NLP Basic, DVNLP)</h2>
+            <div class="kurstext"><p>
+            <b>6 Tage, die ihr Leben bereichern werden:</b>
+            Sie gehen Ihren eigenen intensiven <b>Coachingweg</b> und lernen gleichzeitig
+            <b>einzigartige Kommunikations-, Hypnose und Coachingtechniken</b>.
+            Ihr Blick für menschliche Systeme wird geschärft und Sie meistern schwierige kommunikative Herausforderungen eleganter.
+            Ausserdem: Sie lernen bei Explorers' spannende Menschen kennen, von denen es viel zu lernen gibt!
+        </p>
+            <br>
+            <img src="NLP-Practitioner-Gruppe.jpeg">
+            <br>
+            <p>
+                <b>(Modul 1: 2 Tage) Kommunikation neu erfahren und neu nutzen: </b><br>
+                Selbst- und Fremdeinschätzung verbessern · Wahrnehmung · die Grenzen der Aufmerksamkeit · mental-emotionale Zustände · nonverbale Kommunikation ·
+                Repräsentationssysteme · szenisches Denken · Spiegeln und Spiegelneurone · Pacing &amp;
+                Leading · Rapport herstellen · Wege der Zielbestimmung · Ressourcen Ankern
+            </p>
+            <br>
+            <p>
+                <b>(Modul 2: 4 Tage) Ziele ausrichten, alte Muster verabschieden und kraftvolle Mentalzustände verankern.</b><br>
+                Weitere Ankertechniken (Anker Verschmelzen, Verketten u.a.) · Wahrnehmungspositionen · Mentorenmodell · vertiefende Zielarbeit · systemisches Coaching ·
+                New Behavior Generator (inkl. Aufstellungselementen) · hypnotische Sprachmuster · unpassende »Verhaltensmuster« entkräften und ersetzen mit Change History · Swish für schnelle Verhaltensänderung.<br>
+                Ganz nebenbei verändert sich Ihr Blick auf die Welt: Sie kommen sich selbst ein gutes Stück näher. Das ist jenseits aller Techniken, der beste Weg Ihre Kommunikation zu verbessern!
+            </p>
+            <br>
+            <p><b>Teilnehmerstimmen:</b></p>
+            <br>
+            <iframe width="352" height="240" src="//www.youtube.com/embed/fKBCjkHhQXU"></iframe>
+            <iframe width="352" height="240" src="//www.youtube.com/embed/Vb9CTagpM0Y"></iframe>
+            <iframe width="352" height="240" src="//www.youtube.com/embed/eIPYMb03F6Q"></iframe>
+            <iframe width="352" height="240" src="//www.youtube.com/embed/32NPZ1_ehao"></iframe>
+            <br> <br>
+            <h3>Scout:&gt; Dr. Frank Görmar</h3> <br>
+            Wir freuen uns darauf, Sie kennen zu lernen!</div>
+            <div class="kosten">
+                <h1>Preis: </h1>
+                <h1 id="preis3">750€</h1>
+            </div>
+
+            <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+            <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal1" id="buchenButton1">Buchen</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal Inhalt-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--  Der Header des Modals mit dem Kursnamen -->
+                            <h3 class="modal-title">NLP Explorer 1 (zert. NLP Basic, DVNLP)</h3>
+                            <!-- Dieser Button ist zum schließen des Modal -->
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+
+                        </div>
+                        <!-- Hier ist der Inhalt des Modals  -->
+                        <div class="modal-body">
+                            <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                             -->
+                            <form class="form" action="Karte.php" method="post">
+                                <label>Termin: </label><br>
+                                <select class="options" name="Datum"><option value="12. August 2020">12. August 2020</option><option value="27. August 2020">27. August 2020</option><option value="20. September 2020">20. September 2020</option></select> <br><br>
+                                <label>Vorname:</label><br>
+                                <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                <label>Nachname: </label><br>
+                                <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                <input type="hidden" id="kursname2" name="Kurs" value="NLP Explorer 1 (zert. NLP Basic, DVNLP)">
+                                <input type="hidden" id="standort2" name="Standort" value="Blankenheimer Straße 30a 60529 Frankfurt am Main">
+                                <h2>Preis: </h2>
+                                <h2 class="Preis">750€</h2>
+                                <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div><div id="kurs3">
+        <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+        <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo2" id="button2">NLP Explorer 2 (zert. NLP Practitioner, DVNLP)<img src="icons8-plus-math-52.png" class="plus"></button>
+        <!-- Das Collapsible mit der Kursbeschreibung -->
+        <div id="demo2" class="collapse">
+            <!-- Modal -->
+            <h2 class="kursname">NLP Explorer 2 (zert. NLP Practitioner, DVNLP)</h2>
+            <div class="kurstext"><p><b>12 Tage um bei sich anzukommen! Hier vertiefen und stabilisieren Sie Ihren Coaching Prozess.</b></p>
+            <img src="Business-Coach-500-99.jpeg">
+            <br>
+            <p><b>(Modul 3: 4 Tage)</b> Erweiterte Swishtechniken, NLP-Vorannahmen, Einführung in die Trance (Hypnose) Arbeit, Miltonmodell, Metamodell der Sprache, Trance Induktionen, Trance Sprache anwenden,
+                Ressourcetrance, Nutzen von Metaphern und Alltagstrancen, Allergietechnik, Einführung in NLP-Strategien, Strategien erkennen, Mozart-Strategie, Disneystrategie u.a.</p>
+            <br>
+            <p><b>(Modul 4: 4 Tage)</b> Einführung in die zarte Kunst des Umdeutens (Inhalts / Kontextreframing), Umgang mit Einwänden, Arbeit mit inneren Anteilen,
+                erweitertes Verhandlungs-Reframing, Six Step Reframing, Gruppen Denken: Dialogos, Einführung in die Zeitlinienarbeit, eigene Zeitlinie ermitteln, Altersprogression</p>
+            <br>
+            <p><b>(Modul 5: 4 Tage)</b> Vertiefende 2. Reise durch das gesamte NLP: NLP Landkarten, Practitioner Aufstellung, NLP Vorannahmen überprüfen,
+                Testing, Neurologische Ebenen des Lernens, Neurological Level Alignement, Perceptual Cybernetics &amp; Jungle Gym</p>
+            <br>
+            <h3>Scouts: Dr. Frank Görmar - Karin Sari Jouhoff</h3>
+            <br>
+            <p><b>Pactitioner, DVNLP = EXPLORER I + EXPLORER II + Special </b></p></div>
+            <div class="kosten">
+                <h1>Preis: </h1>
+                <h1 id="preis4">800€</h1>
+            </div>
+
+            <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+            <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal2" id="buchenButton2">Buchen</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal Inhalt-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--  Der Header des Modals mit dem Kursnamen -->
+                            <h3 class="modal-title">NLP Explorer 2 (zert. NLP Practitioner, DVNLP)</h3>
+                            <!-- Dieser Button ist zum schließen des Modal -->
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+
+                        </div>
+                        <!-- Hier ist der Inhalt des Modals  -->
+                        <div class="modal-body">
+                            <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                             -->
+                            <form class="form" action="Karte.php" method="post">
+                                <label>Termin: </label><br>
+                                <select class="options" name="Datum"><option value="4. August 2020">4. August 2020</option><option value="10. August 2020">10. August 2020</option><option value="1. September 2020">1. September 2020</option></select> <br><br>
+                                <label>Vorname:</label><br>
+                                <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                <label>Nachname: </label><br>
+                                <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                <input type="hidden" id="kursname3" name="Kurs" value="NLP Explorer 2 (zert. NLP Practitioner, DVNLP)">
+                                <input type="hidden" id="standort3" name="Standort" value="Im Kloster 61194 Niddatal">
+                                <h2>Preis: </h2>
+                                <h2 class="Preis">800€</h2>
+                                <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div><div id="kurs4">
+        <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+        <button type="button" class="btn btn-block modbutton blackbutton" data-toggle="collapse" data-target="#demo3" id="button3">MASTER, DVNLP<img src="icons8-plus-math-52.png" class="plus"></button>
+        <!-- Das Collapsible mit der Kursbeschreibung -->
+        <div id="demo3" class="collapse">
+            <!-- Modal -->
+            <h2 class="kursname">MASTER, DVNLP</h2>
+            <div class="kurstext"><p>
+            Im PRACTITIONER wurden Basistechniken und -formate des NLP eingeübt.
+            Im NLP EXPLORER MASTER werden die Formate nicht mehr "vom Blatt gespielt" sondern eher improvisiert.
+            Das allerdings mit großem Verständnis für die NLP Grundelemente.
+        </p>
+            <br>
+            <img src="Master-Gruppe-2-500-275.jpeg">
+            <br>
+            <br>
+            <ul>
+                <li>
+                    Integration der NLP-Grundannahmen
+                </li>
+                <li>
+                    Modellieren von Spitzenleistungen    </li>
+                <li>
+                    Fortgeschrittene NLP-Coaching-Techniken    </li>
+                <li>
+                    Fortgeschrittene Rapportfähigkeit    </li>
+                <li>
+                    Freeflight: freies Coaching und Feedback    </li>
+            </ul>
+            <br>
+            <p>Teilnehmerstimmen Master</p>
+            <br>
+            <blockquote>Roland war im Practitioner und Master und ist derzeit in der Coach, DVNLP Fortbildung.  </blockquote>
+            <br>
+            <blockquote>Mehran hat nach seiner Master Ausbildung bei uns den Trainer abgeschlossen. Aus dieser Perspektive beschreibt er seinen Anfang bei Explorers'</blockquote>
+            <br>
+            <iframe width="480" height="360" src="https://www.youtube.com/embed/Vb9CTagpM0Y">
+            </iframe>
+            <iframe width="480" height="360" src="https://www.youtube.com/embed/32NPZ1_ehao">
+            </iframe>
+            <p>
+                <b>Inhalte:</b><br>
+                <b>Modul 1 (4 Tage) COME TOGETHER:</b><br>
+                Kennenlernen · Metaprogramme · Arbeit mit Werten · Einstieg ins Modellieren - dem Herzstück des NLP · Walt-Disney-Aufstellung · 2 Tage Trance II<br>
+                Vertiefung der Arbeit mit Trancesprache<br>
+                <b>Modul 2 (4 Tage) REKURSION  oder: durchs paradoxe Nadelöhr</b><br>
+                Selbstorganisationsprozesse nutzen und fördern · NLP-Basics vertiefen · Gilligan Format · Core-Transformation · Rekursives Ziele finden · Sleight of Mouth Patterns ·<br>
+                Walking Believe Change · Free Flight (Freies Coachen mit Feedback)<br>
+                <b>Modul 3 (4 Tage) KOMPLEXITÄT  oder: die persönliche Evolution fördern</b><br>
+                Autopoiese des Geistes · Aufstellungselemente · Lebenslieder/Leitsätze der Eltern · einschränkende Glaubensätze · Reimprinting von Glaubenssätzen ·<br>
+                persönliche Paradigm-Shifts entdecken und als Magic Moments nutzen können · Free Flight<br>
+                <b>Modul 4  (4 Tage) INTEGRATION</b><br>
+                NLP-Transfer · Integration und Testing · Cheshire Cat Übung · Meta Mirror · Freeflight · Master-Modellings · Ziele · Feedback · Teamkaleidoskop · Parental Timeline · Design Human Engeneering<br>
+            </p><h3>Scouts: Dr. Frank Görmar · Karin Sari Jouhoff</h3><br>
+            </div>
+            <div class="kosten">
+                <h1>Preis: </h1>
+                <h1 id="preis5">850€</h1>
+            </div>
+
+            <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+            <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal3" id="buchenButton3">Buchen</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal Inhalt-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--  Der Header des Modals mit dem Kursnamen -->
+                            <h3 class="modal-title">MASTER, DVNLP</h3>
+                            <!-- Dieser Button ist zum schließen des Modal -->
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+
+                        </div>
+                        <!-- Hier ist der Inhalt des Modals  -->
+                        <div class="modal-body">
+                            <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                             -->
+                            <form class="form" action="Karte.php" method="post">
+                                <label>Termin: </label><br>
+                                <select class="options" name="Datum"><option value="12. August 2020">12. August 2020</option><option value="27. August 2020">27. August 2020</option><option value="20. September 2020">20. September 2020</option></select> <br><br>
+                                <label>Vorname:</label><br>
+                                <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                <label>Nachname: </label><br>
+                                <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                <input type="hidden" id="kursname4" name="Kurs" value="MASTER, DVNLP">
+                                <input type="hidden" id="standort4" name="Standort" value="Blankenheimer Straße 30a 60529 Frankfurt am Main">
+                                <h2>Preis: </h2>
+                                <h2 class="Preis">850€</h2>
+                                <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+</div></div>
+
+<!-- Farblich hinterlegter Textabschnitt -->
+<h1 style="margin-bottom: 1em; text-align: center">Specials und Zusatzmodule</h1>
+<div class="color">
+    <p>
+        Unsere Ausbildungsreihen werden durch Specials komplettiert. In Ihrer Gesamtrechnung sind ein bis zwei Standard Specials (mit * markiert) enthalten.
+        Gerne können Sie längere oder aufwändigere Specials für Ihre Ausbildungsreihen wählen. Sie zahlen dann lediglich einen Upgradepreis.
+        Alle Specials können auch als offenes Seminar gebucht werden, auch wenn Sie bislang noch an keiner unserer Ausbildung teilgenommen haben. <br> <br>
+        <b>Gerne unterstützen wir Sie auch telefonisch bei der Buchung: 069 - 48 00 56 38.</b>
+    </p>
+</div>
+<!-- Zweite Gruppe von Kursen, in Javascript wird anhand der in der Datenbank hinterlegten special eigenschaft entschieden, ob ein Kurs in die 1. oder 2. Gruppe gehört -->
+    <div class="list-group" id="kurse2">
+
+
+        <div id="kurs5">
+            <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+            <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo4" id="button4">Explorers' Campus Fest<img src="icons8-plus-math-52.png" class="plus"></button>
+            <!-- Das Collapsible mit der Kursbeschreibung -->
+            <div id="demo4" class="collapse">
+                <!-- Modal -->
+                <h2 class="kursname">Explorers' Campus Fest</h2>
+                <div class="kurstext"><p>
+                Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) <br>
+                Investition: <b>ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</b>    </p>
+                <br>
+                <p>
+                    Je nach Wetter: grillen und chillen - (Weiteres Programm auf Anfrage) <br>
+                    Investition: <b>ca. 10-20€ bitte direkt mitbringen oder eine Leckerei für den Grillabend mitbringen. Sagt uns Bescheid - danke.</b>    </p></div>
+                <div class="kosten">
+                    <h1>Preis: </h1>
+                    <h1 id="preis6">0€</h1>
+                </div>
+
+                <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+                <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal4" id="buchenButton4">Buchen</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal4" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal Inhalt-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!--  Der Header des Modals mit dem Kursnamen -->
+                                <h3 class="modal-title">Explorers' Campus Fest</h3>
+                                <!-- Dieser Button ist zum schließen des Modal -->
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+
+                            </div>
+                            <!-- Hier ist der Inhalt des Modals  -->
+                            <div class="modal-body">
+                                <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                    Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                    Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                                 -->
+                                <form class="form" action="Karte.php" method="post">
+                                    <label>Termin: </label><br>
+                                    <select class="options" name="Datum"><option value="12. Juli 2020">12. Juli 2020</option><option value="27. September 2020">27. September 2020</option><option value="20. Dezember 2020">20. Dezember 2020</option></select> <br><br>
+                                    <label>Vorname:</label><br>
+                                    <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                    <label>Nachname: </label><br>
+                                    <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                    <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                    <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                    <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                    <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                    <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                    <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                    <input type="hidden" id="kursname5" name="Kurs" value="Explorers' Campus Fest">
+                                    <input type="hidden" id="standort5" name="Standort" value="Blankenheimer Straße 30a 60529 Frankfurt am Main">
+                                    <h2>Preis: </h2>
+                                    <h2 class="Preis">0€</h2>
+                                    <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div><div id="kurs6">
+        <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+        <button type="button" class="btn btn-block modbutton blackbutton" data-toggle="collapse" data-target="#demo5" id="button5">Explorers' wingwave kennenlernen<img src="icons8-plus-math-52.png" class="plus"></button>
+        <!-- Das Collapsible mit der Kursbeschreibung -->
+        <div id="demo5" class="collapse">
+            <!-- Modal -->
+            <h2 class="kursname">Explorers' wingwave kennenlernen</h2>
+            <div class="kurstext"><p>
+            für Neugierige, die Wingwave kennenlernen möchten. <br>
+            Am Campus 13:00 - 15:00, oder<br>
+            am Vorabend des Wingwavetrainings um 19:00.<br>
+            Ort: Kloster Ilbenstadt     </p></div>
+            <div class="kosten">
+                <h1>Preis: </h1>
+                <h1 id="preis7">15€</h1>
+            </div>
+
+            <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+            <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal5" id="buchenButton5">Buchen</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal5" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal Inhalt-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--  Der Header des Modals mit dem Kursnamen -->
+                            <h3 class="modal-title">Explorers' wingwave kennenlernen</h3>
+                            <!-- Dieser Button ist zum schließen des Modal -->
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+
+                        </div>
+                        <!-- Hier ist der Inhalt des Modals  -->
+                        <div class="modal-body">
+                            <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                             -->
+                            <form class="form" action="Karte.php" method="post">
+                                <label>Termin: </label><br>
+                                <select class="options" name="Datum"><option value="12. August 2020">12. August 2020</option><option value="27. August 2020">27. August 2020</option><option value="20. September 2020">20. September 2020</option></select> <br><br>
+                                <label>Vorname:</label><br>
+                                <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                <label>Nachname: </label><br>
+                                <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                <input type="hidden" id="kursname6" name="Kurs" value="Explorers' wingwave kennenlernen">
+                                <input type="hidden" id="standort6" name="Standort" value="Im Kloster 61194 Niddatal">
+                                <h2>Preis: </h2>
+                                <h2 class="Preis">15€</h2>
+                                <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div><div id="kurs7">
+        <!-- Die Kurse werden zuerst nur mit diesem Button dargestellt, mithilfe von Bootstrap wird durch diesen Button das Collapsible mit der Kursbeschreibung geöffnet -->
+        <button type="button" class="btn btn-block modbutton" data-toggle="collapse" data-target="#demo6" id="button6">Bühnenpräsenz für Coaches<img src="icons8-plus-math-52.png" class="plus"></button>
+        <!-- Das Collapsible mit der Kursbeschreibung -->
+        <div id="demo6" class="collapse">
+            <!-- Modal -->
+            <h2 class="kursname">Bühnenpräsenz für Coaches</h2>
+            <div class="kurstext"><p>
+            Was macht die sympathische Medienwirkung von Günter Jauch und die Lockerheit von Thomas Gottschalk aus? Sie zu imitieren geht nicht, aber eines haben die Top-Moderatoren überwunden: den Fluchtreflex, der jeden vernünftigen Menschen befällt, wenn er vor Publikum und vor einer Kamera steht.<br>
+            Erst dann ist der Moderator authentisch und professionell. Genau darum geht es bei diesem Training, wir rücken Ihre Persönlichkeit ins rechte Rampenlicht.<br>
+            <br>
+            Das kommt gut rüber<br>
+            1    Lernen von Medienmoderatoren<br>
+            2    Checkup: So sehen Sie die andern<br>
+            3    Was macht souverän auf der Bühne?<br>
+            <br>
+            Die Punktlandung<br>
+            4    Kompetenz unter Zeitdruck<br>
+            5    Die plakative Botschaft<br>
+            6    Die Macht der Bilder<br>
+            <br>
+            Darauf kommts an<br>
+            7    Auftrittspräsenz<br>
+            8    Souveränität durch Atmung<br>
+            9    Sympathiegewinn mit Stimme<br>
+            <br>
+            Feintuning für Profis<br>
+            10    Glaubwürdige Körpersprache<br>
+            11    Wohin mit den Händen?<br>
+            12    Der Ton macht die Musik<br>
+            13    Pannentraining<br>
+            <br>
+        </p><h3>
+            Scouts:<br>
+            Dr. Frank Görmar<br>
+            Ursula Frentzel    </h3><div>
+            <div class="kosten">
+                <h1>Preis: </h1>
+                <h1 id="preis8">540€</h1>
+            </div>
+
+            <!-- Durch diesen Knopf wird ein Bootstrap Modal geöffnet, in welchem man den Kurs buchen kann -->
+            <button type="button" class="btn btn-info btn-lg buchenbut" data-toggle="modal" data-target="#myModal6" id="buchenButton6">Buchen</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal6" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal Inhalt-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--  Der Header des Modals mit dem Kursnamen -->
+                            <h3 class="modal-title">Bühnenpräsenz für Coaches</h3>
+                            <!-- Dieser Button ist zum schließen des Modal -->
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+
+                        </div>
+                        <!-- Hier ist der Inhalt des Modals  -->
+                        <div class="modal-body">
+                            <!-- Das Modal besteht aus einem Form in welchem man einen der in der Datenbank hinterlegten Termine aussuchen kann und dann mit Eingabe seiner Daten diesen Kurs an dem Termin buchen kann.
+                                Bei Abschicken des Forms wird man zu der Seite Karte.php weitergeleitet, welcher die Eingaben mithilfe von Post übergeben wurden.
+                                Auf dieser Seite werden die Daten hochgeladen und es wird einem eine Bestellbestätigung und eine Route zu dem Standort des ausgewählten Kurses gezeigt.
+                             -->
+                            <form class="form" action="Karte.php" method="post">
+                                <label>Termin: </label><br>
+                                <select class="options" name="Datum"><option value="12. August 2020">12. August 2020</option><option value="27. August 2020">27. August 2020</option><option value="20. September 2020">20. September 2020</option></select> <br><br>
+                                <label>Vorname:</label><br>
+                                <input type="text" placeholder="Vorname" name="Vorname" required="required"><br><br>
+                                <label>Nachname: </label><br>
+                                <input type="text" placeholder="Nachname" name="Nachname" required="required"><br><br>
+                                <label style="padding-right: 11.5em;">Stadt: </label><label>PLZ: </label><br>
+                                <input type="text" placeholder="Stadt" name="Stadt" style="width: 14em" required="required">
+                                <input type="text" placeholder="PLZ" name="PLZ" style="width: 5em" required="required"><br><br>
+                                <label style="padding-right: 10.8em;">Straße: </label> <label>Nr.: </label> <br>
+                                <input type="text" placeholder="Straße" name="Strasse" style="width: 14em" required="required">
+
+                                <input type="text" placeholder="Nr." name="Hausnummer" style="width: 5em" required="required"> <br>
+
+                                <input type="hidden" id="kursname7" name="Kurs" value="Bühnenpräsenz für Coaches">
+                                <input type="hidden" id="standort7" name="Standort" value="Im Kloster 61194 Niddatal">
+                                <h2>Preis: </h2>
+                                <h2 class="Preis">5400€</h2>
+                                <input type="submit" value="Buchen" class="btn buchungabschicken">
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Im Modal Footer ist ebenfalls noch ein Schließ Button -->
+                            <button type="button" class="btn btn-default " data-dismiss="modal">Schließen</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div></div>
+
+
+<!--
+Newsletter
+
+über Ajax wird die eingegebene E-Mail Adresse an den Server geschickt.
+Mithilfe von Javascript wird die Klasse hidden so getoggelt, dass nach bestellen des Newsletters, Vielen Dank angezeigt wird
+
+-->
+<div class="container news">
+    <div class="jumbotron text-center">
+        <form class="Newsletter">
+            <h2>Explorers' Newsletter</h2>
+            <label for="EmailNewsletter" id="email">Email:</label>
+            <input type="text" placeholder="Email-Adresse" id="EmailNewsletter" class="NewsletterEmail">
+            <button type="button" class="btn" id="bestellen">Bestellen</button>
+        </form>
+        <h2 class="Danke hidden">Vielen Dank!</h2>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- HTML für den Footer  -->
+
+<div class="footer"  id="unten">
+    <div class="container-fluid ">
+        <div class="row footerrow">
+            <div class="col-sm-2">
+                <h3>explorers' akademie</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3> social</h3>
+            </div>
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-2">
+                <h3> by  M. hämke,  B. Bahlinger,  &  P. Wagner- Görmar</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="footer2">
+    <div class="container-fluid ">
+        <div class="row footerrow">
+            <div class="col-sm-2">
+                <h6>Dr. Frank Görmar</h6>
+            </div>
+            <div class="col-sm-2">
+                <a href="https://de-de.facebook.com/explorers.akademie"><h6>Facebook </h6></a>
+            </div>
+
+            <div class="col-sm-8">
+
+            </div>
+
+            <div class="col-sm-2">
+                <h6>Tel. +49 69/ 48005636</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+            <div class="col-sm-2">
+                <h6>Skype: frank.goermar</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+            <div class="col-sm-2">
+                <h6>E-Mail: info@explorers-akademie.de</h6>
+            </div>
+            <div class="col-sm-10">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+<!-- Das Script zu dieser Seite -->
+    <script src="newsletter.js"></script>
+</html>

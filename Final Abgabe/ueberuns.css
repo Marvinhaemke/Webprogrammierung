@@ -1,0 +1,121 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5% 10% 5% 10%;
+}
+
+.scout {
+    flex-basis: 33%;
+    padding: 30px;
+    min-width: 200px;
+    margin-top: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Porträt */
+
+img {
+    border-radius:100%;
+    max-width: 150px;
+    height: auto;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Name */
+
+.name h4 {
+    font-family: 'AileronBold';
+    font-style: normal;
+    font-size: 1.5rem;
+    color: #3d6870;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-bottom: .8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+
+}
+
+.beschreibung {
+    font-style: italic;
+    font-family: 'AileronThin';
+    font-weight: lighter;
+    letter-spacing: 0.05em;
+    text-align: center;
+    align-content: center
+}
+
+
+.links {
+    font-family: 'AileronThin';
+    font-weight: lighter;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin:20px;
+}
+
+.links img {
+    height: 30px;
+    width: auto;
+}
+
+
+.steckbutton {
+    position: absolute;
+    bottom: 0;
+    background-color: #3d6870 !important;
+    outline: none !important;
+    border: none;
+    border-radius: 0.1rem;
+    margin-top: 50px;
+    width: 90%;
+}
+
+
+.webseite {
+    display: block;
+    font-size: 1.5em;
+    color: #3d6870;
+}
+
+
+/* MODAL */
+
+.thema {
+    font-style: italic;
+}
+
+.modal-header {
+    background-color: rgba(61,104,112,.4);
+    font-family: 'AileronBold';
+}
+
+.modal-title {
+    color: white;
+    font-size: 1.5em;
+
+    text-transform: uppercase;
+}
+
+
+h5 {
+    font-family: Playfair Display;
+    font-weight: lighter;
+    font-size: 1.2rem;
+}
+
+.modal a {
+    color:rgba(61,104,112,.4);
+}
+
+.scout a {
+    color: #3d6870;
+    font-size: 1.3em;
+}
+
